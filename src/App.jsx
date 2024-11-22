@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import  { fetchArticles } from './services/newsApi';
-import NewsFeed from './components/NewsFeed';
-
+import React from "react";
+import ArticleSearch from "./components/ArticleSearch";
+import ArticleList from "./components/ArticleList";
 
 function App() {
-  const [query, setQuery] = useState("");
+  const handleSearch = async () => {
+    const results = await ArticleSearchService();
+    setArticles(results);
+  };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <header className="mb-6 text-center">
+    <div className="p-6 pt-12 min-h-screen">
+      <header className="mb-6 text-center pb-5">
         <h1 className="text-4xl font-bold text-blue-600">News Aggregator</h1>
-        <input
-          type="text"
-          placeholder="Search for news..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="mt-4 p-2 border rounded w-full max-w-lg"
-        />
+        <p className="text-gray-600 text-lg">
+          Fetching news from multiple sources
+        </p>
       </header>
-      <main>
-        <NewsFeed query={query} />
-      </main>
+      <ArticleSearch onSearch={handleSearch} />
+      <ArticleList />
     </div>
   );
 }
