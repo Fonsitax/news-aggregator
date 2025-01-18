@@ -7,6 +7,9 @@ const BASE_URL = "https://content.guardianapis.com";
 
 const guardianApiClient = axios.create({
   baseURL: proxyUrl + BASE_URL,
+  headers: {
+    "X-Requested-With": "XMLHttpRequest",
+  },
 });
 
 export const fetchGuardianArticles = async (
