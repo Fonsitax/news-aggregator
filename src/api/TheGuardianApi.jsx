@@ -2,7 +2,8 @@ import axios from "axios";
 import { CATEGORIES } from "../constant/Category";
 
 const GUARDIAN_API_KEY = "c9fec133-9671-442a-8cf9-e78aa9db9500";
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+const proxyUrl =
+  "http://cors-anywhere-env-2-env.eba-a9xzgtci.eu-central-1.elasticbeanstalk.com/";
 const BASE_URL = "https://content.guardianapis.com";
 
 const guardianApiClient = axios.create({
